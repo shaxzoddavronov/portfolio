@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import joblib
 
-st.image('D:\streamlit\perth_house\house_app.py')
+st.image('perth-house-price-prediction/app/house.png')
 st.title('Perth House Price Prediction')
 st.subheader('Acknowledgements')
 st.write("""This data was scraped from http://house.speakingsame.com/ and includes data from 322 Perth suburbs, 
@@ -26,14 +26,14 @@ The nearest schools to each address selected in this dataset are schools which a
 Do also note that under the "NEAREST_SCH_RANK" column, there are some missing rows as some schools are unranked according to 
          [this criteria](https://bettereducation.com.au/Results/WA/wace.aspx) by bettereducation.""")
 
-df=pd.read_csv('D:\streamlit\perth_house\perth_house_price.csv')
-df_prepared=pd.read_csv('D:\streamlit\perth_house\perth_house_prepared.csv',index_col=0)
+df=pd.read_csv('perth-house-price-prediction/data/perth_house_price.csv')
+df_prepared=pd.read_csv('perth-house-price-prediction/data/perth_house_prepared.csv',index_col=0)
 st.subheader('Data')
 st.dataframe(df)
 st.subheader('Cleaned and Feature Engineering used data')
 st.dataframe(df_prepared)
-options_model={'XGB':'D:\streamlit\perth_house\XGB_model.jbl','D:\streamlit\perth_house\RF_model.jbl':'RF_model.jbl',
-               'Decision Tree':'D:\streamlit\perth_house\Tree_model.jbl'}
+options_model={'XGB':'perth-house-price-prediction/models/XGB_model.jbl','Random Forest':'perth-house-price-prediction/models/RF_model.jbl',
+               'Decision Tree':'perth-house-price-prediction/models/Tree_model.jbl'}
 options={'XGB':'D:\streamlit\perth_house\XGB_prediction.csv','Random Forest':'D:\streamlit\perth_house\RF_prediction.csv',
          'Decision Tree':'D:\streamlit\perth_house\Tree_prediction.csv'}
 model_name=st.selectbox('Input model type',options=options.keys())

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import altair as alt
 
-df=pd.read_csv('D:\streamlit\perth_house\perth_house_prepared.csv',index_col=0)
+df=pd.read_csv('perth-house-price-prediction/data/perth_house_prepared.csv',index_col=0)
 st.header('Price Trending')
 options=['min','max','mean']
 color_codes=['b','r','o']

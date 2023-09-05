@@ -6,9 +6,9 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 import joblib
 st.title(' House Price Prediction App')
-pipeline=joblib.load('D:\streamlit\perth_house\pipeline.jbl')
+pipeline=joblib.load('perth-house-price-prediction/app/pipeline.jbl')
 st.write('You should enter some information about house')
-X_data=pd.read_csv('D:\streamlit\perth_house\data_X.csv',index_col=0)
+X_data=pd.read_csv('perth-house-price-prediction/app/pages/data_X.csv',index_col=0)
 #replace_values={7:'SENIOR HIGH SCHOOL',6:'SCHOOl',1:'ALTA-1',3:'COLLEGE',5:'HIGH SCHOOL',2:'CAMPUS',4:'GRAMMAR'}
 #X_data.School_type=X_data.School_type.map(replace_values)
 title_names=['Suburb', 'Bedrooms', 'Bathrooms', 'Garage', 'Land Area','Floor Area', 'Year Built', 
@@ -30,8 +30,8 @@ st.dataframe(house_table)
 
 #house_table=house_table[]
 
-options_model={'XGB':'D:\streamlit\perth_house\XGB_model.jbl','Random Forest':'D:\streamlit\perth_house\RF_model.jbl',
-               'Decision Tree':'D:\streamlit\perth_house\Tree_model.jbl'}
+options_model={'XGB':'perth-house-price-prediction/models/XGB_model.jbl','Random Forest':'perth-house-price-prediction/models/RF_model.jbl',
+               'Decision Tree':'perth-house-price-prediction/models/Tree_model.jbl'}
 model_chosen=st.selectbox('Choose model',options=['XGB','Random Forest','Decision Tree'])
 st.button('Reset',type='primary')
 if st.button('Show result'):

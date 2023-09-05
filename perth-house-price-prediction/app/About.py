@@ -34,8 +34,8 @@ st.subheader('Cleaned and Feature Engineering used data')
 st.dataframe(df_prepared)
 options_model={'XGB':'perth-house-price-prediction/models/XGB_model.jbl','Random Forest':'perth-house-price-prediction/models/RF_model.jbl',
                'Decision Tree':'perth-house-price-prediction/models/Tree_model.jbl'}
-options={'XGB':'D:\streamlit\perth_house\XGB_prediction.csv','Random Forest':'D:\streamlit\perth_house\RF_prediction.csv',
-         'Decision Tree':'D:\streamlit\perth_house\Tree_prediction.csv'}
+options={'XGB':'perth-house-price-prediction/predicted_data/XGB_prediction.csv','Random Forest':'perth-house-price-prediction/predicted_data/RF_prediction.csv',
+         'Decision Tree':'perth-house-price-prediction/predicted_data/Tree_prediction.csv'}
 model_name=st.selectbox('Input model type',options=options.keys())
 index=st.number_input('Input index number',0,len(df_prepared))
 def model_choose(options,model_name):   

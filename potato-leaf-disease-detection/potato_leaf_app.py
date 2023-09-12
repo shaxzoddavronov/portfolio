@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import tensorflow as tf
 from PIL import Image
-model=tf.keras.models.load_model('leaf_model.h5')
+model=tf.keras.models.load_model('potato-leaf-disease-detection/model.h5')
 classes=['Potato Early blight', 'Potato Late blight', 'Potato healthy']
 st.title('Potato Leaf Disease Prediction')
 

@@ -12,7 +12,7 @@ def preprocess_vectorize(text):
     doc_non_stop=nlp(non_stop_text)
     not_oov_text=[token.lemma_ for token in doc_non_stop if not token.is_oov]
     prep_text=' '.join(not_oov_text)
-    vectorizer=joblib.load('Tf_Idf_vectorizer.jbl')
+    vectorizer=joblib.load('financial-news-sentiment-analysis/models/Tf_Idf_vectorizer.jbl')
     return vectorizer.transform([prep_text]) 
 
 st.image('sentiment.png')
@@ -20,7 +20,9 @@ st.title('Financial News Sentiment Analysis')
 st.write('In the app, you can get prediction of financial news sentiment with different Machine Learning models')
 #model_types=['Random Forest','Random Forest (gensim)','Logistic Regression','XGBoost',
              #'XGBoost (gensim)','Support Vector Machine','Support Vector Machine (gensim)']
-model_files={'Random Forest':'RandomForest.jbl','Logistic Regression':'Logistic.jbl','XGBoost':'XGboost.jbl'}
+model_files={'Random Forest':'financial-news-sentiment-analysis/models/RandomForest.jbl',
+             'Logistic Regression':'financial-news-sentiment-analysis/models/Logistic.jbl',
+             'XGBoost':'financial-news-sentiment-analysis/models/XGboost.jbl'}
 chosen_model=st.selectbox('Select model',model_files.keys())
 model=joblib.load(model_files[chosen_model])
 text=st.text_area('Enter financial news related text')
